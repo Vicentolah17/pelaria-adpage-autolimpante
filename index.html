@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Escova Autolimpante Pelaria · O pelo morto sai na fonte</title>
-<meta name="description" content="A Escova Autolimpante Pelaria remove o subpelo morto na fonte e se limpa sozinha com um clique. Frete grátis, garantia de 7 dias.">
+<meta name="description" content="A Escova Autolimpante Pelaria tira o pelo morto direto da raiz da pelagem, antes de ele cair, e se limpa sozinha com um clique. Frete grátis e garantia de 7 dias.">
 <meta name="theme-color" content="#FAF5EF">
 
 <!-- Ícone da aba e prévia ao compartilhar o link (WhatsApp, Instagram, Facebook).
@@ -13,7 +13,7 @@
 <link rel="icon" href="assets/marca/favicon.png" type="image/png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Escova Autolimpante Pelaria">
-<meta property="og:description" content="Remove o subpelo morto na fonte e se limpa sozinha com um clique. Frete grátis e garantia de 7 dias.">
+<meta property="og:description" content="Tira o pelo morto direto da raiz da pelagem, antes de ele cair, e se limpa sozinha com um clique. Frete grátis e garantia de 7 dias.">
 <meta property="og:image" content="assets/marca/compartilhamento.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -336,6 +336,26 @@ td.no{ color:var(--ink-faint); }
    O margin auto é o que faltava antes, por isso ele encostava à esquerda. */
 .offer-head{ max-width:720px; margin:0 auto; }
 
+/* Linha de escassez da caixa de oferta. Discreta de propósito:
+   afirmação de estoque em caixa alta e vermelho berrante lê como
+   anúncio agressivo, que é justamente o oposto do tom da página. */
+.scarcity{
+  margin:0 0 20px;
+  font-size:14px;
+  font-weight:500;
+  line-height:1.4;
+  color:var(--accent);
+}
+.scarcity::before{
+  content:"";
+  display:inline-block;
+  width:7px; height:7px;
+  margin-right:8px;
+  vertical-align:middle;
+  background:var(--accent);
+  border-radius:50%;
+}
+
 /* =========================================================
    11. SEÇÃO 9 · CARROSSEL DE DEPOIMENTOS
    Scroll-snap nativo. Setas só aparecem no desktop.
@@ -426,11 +446,47 @@ td.no{ color:var(--ink-faint); }
 /* =========================================================
    13. RODAPÉ
    ========================================================= */
-.footer{ background:var(--white); border-top:1px solid var(--line); padding:44px 0 40px; }
-.footer-brand{ font-weight:600; font-size:22px; letter-spacing:-.01em; margin-bottom:16px; }
-.footer-links{ display:flex; flex-wrap:wrap; gap:8px 22px; margin-bottom:20px; }
-.footer-links a{ color:var(--ink); font-size:15px; text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; }
-.footer-links a:hover{ color:var(--accent); border-color:var(--accent); }
+.footer{
+  background:var(--white);
+  border-top:1px solid var(--line);
+  padding:56px 0 48px;
+  text-align:center;          /* composição centrada: com poucos elementos,
+                                 centralizar lê mais editorial que alinhar à esquerda */
+}
+.footer-brand{ margin:0 0 24px; }
+
+/* Assinatura da marca. Único link do rodapé.
+   Caixa alta com entreletra generosa é o tratamento clássico de
+   logotipo tipográfico: é o que separa "nome escrito" de "assinatura". */
+.footer-brand a{
+  display:inline-block;
+  font-family:inherit;
+  font-size:clamp(26px, 7vw, 34px);
+  font-weight:600;
+  letter-spacing:.24em;
+  text-indent:.24em;          /* compensa o vão que a entreletra cria à direita,
+                                 senão a palavra fica visualmente fora de centro */
+  text-transform:uppercase;
+  color:var(--accent);
+  text-decoration:none;
+  transition:color .25s ease;
+}
+/* Fio curto sob a assinatura, que se estende no hover.
+   Movimento discreto, sem sublinhado comum de link. */
+.footer-brand a::after{
+  content:"";
+  display:block;
+  width:32px; height:1px;
+  margin:16px auto 0;
+  background:var(--accent);
+  opacity:.4;
+  transition:width .4s ease, opacity .4s ease;
+}
+.footer-brand a:hover{ color:var(--accent-dark); }
+.footer-brand a:hover::after{ width:72px; opacity:1; }
+.footer-brand a:focus-visible{ outline:2px solid var(--accent); outline-offset:6px; }
+
+.footer .note + .note{ margin-top:6px; }
 
 /* =========================================================
    14. CTA STICKY (somente mobile)
@@ -514,8 +570,7 @@ td.no{ color:var(--ink-faint); }
 
   .sticky-cta{ display:none; }                      /* nunca sticky no desktop */
 
-  .footer{ padding:64px 0 56px; }
-  .footer-inner{ display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; }
+  .footer{ padding:80px 0 64px; }
 }
 
 @media (min-width:1100px){
@@ -558,10 +613,10 @@ td.no{ color:var(--ink-faint); }
 
       <div class="hero-copy reveal">
         <p class="eyebrow">Escova Autolimpante Pelaria 🐾</p>
-        <h1>O pelo que cobre o seu sofá não caiu do nada. Ele ainda está preso no seu pet.</h1>
-        <p class="sub">Aspirar o chão é enxugar gelo: você tira o que já caiu, e amanhã cai de novo. A Escova Autolimpante Pelaria remove o subpelo morto na fonte e se limpa sozinha com um clique, sem você pinçar pelo com a unha.</p>
-        <a class="btn" href="https://pelaria.com.br/cart/44275167723623:1">QUERO A MINHA ESCOVA</a>
-        <p class="note btn-note">Produto avaliado 4.8 por mais de 5.000 compradores · Frete grátis · Garantia de 7 dias</p>
+        <h1>Aqueles pelos que vivem no seu sofá não caíram do nada. Eles ainda estão presos no seu pet.</h1>
+        <p class="sub">Pelo no chão já virou rotina: você limpa hoje sabendo que amanhã tem de novo. A Escova Autolimpante Pelaria tira o pelo morto direto da raiz da pelagem, antes de ele cair, e se limpa sozinha com um clique.</p>
+        <a class="btn" href="https://pelaria.com.br/cart/44275167723623:1">QUERO MINHA ESCOVA</a>
+        <p class="note btn-note">Produto avaliado 4.8 por mais de 6.500 compradores · Frete grátis · Garantia de 7 dias</p>
       </div>
 
     </div>
@@ -574,9 +629,9 @@ td.no{ color:var(--ink-faint); }
      ========================================================= -->
 <section class="section section--white">
   <div class="wrap wrap--narrow reveal">
-    <h2>Você limpa, limpa, limpa. E parece que os pelos nunca somem.</h2>
-    <p>Você passa o rolinho três vezes na calça preta antes da reunião e ainda sai de casa coberta de pelo. A visita levanta do sofá com as costas brancas de fiapos. O ventilador liga e os pelos flutuam direto pro seu prato. Você aspira a casa inteira e, vinte minutos depois, lá está a primeira bolinha de pelo rolando pelo corredor.</p>
-    <p>Não é falta de esforço. É que você está atacando o lugar errado. Enquanto o pelo morto continua preso no corpo do seu pet, ele vai continuar caindo, todo santo dia, não importa quantas vezes você limpe.</p>
+    <h2>Você limpa, limpa, limpa. E nada parece adiantar.</h2>
+    <p>O pelo já virou parte do seu dia. Na roupa escura na hora de sair, no sofá que você ajeita antes da visita chegar, nos minutos de aspirador que você sabe que amanhã não vão ter valido de nada. Seja você correndo pro trabalho ou em casa o dia todo com ele do seu lado, é a mesma luta.</p>
+    <p>Não é falta de esforço. É que o alvo está errado. Enquanto o pelo morto continua preso no corpo do seu pet, ele vai cair todo santo dia, não importa quantas vezes você limpe.</p>
   </div>
 </section>
 
@@ -594,22 +649,22 @@ td.no{ color:var(--ink-faint); }
     <div class="cards reveal">
       <article class="card">
         <h3>Rolo adesivo</h3>
-        <p>Acaba rápido, para de grudar depois de duas passadas, e você compra de novo todo mês. Dinheiro no lixo, e o pelo volta no dia seguinte.</p>
+        <p>Não dura nada, para de grudar depois de duas passadas, é gasto novo todo mês e os pelos continuam lá.</p>
       </article>
 
       <article class="card">
         <h3>Aspirador</h3>
-        <p>Barulhento, assusta o pet, e pesado pra passar três vezes por dia. Ainda tira só o que já caiu, nunca o que está pra cair.</p>
+        <p>Barulhento, pesado e assusta o seu pet. Fora que os pelos mortos continuam presos na pelagem, prontos pra cair mais. Perda de tempo completa.</p>
       </article>
 
       <article class="card">
-        <h3>Rasqueadeira comum</h3>
-        <p>Entope de pelo na primeira passada, e você tem que puxar tudo com a unha. Fora que as cerdas de metal pontudas arranham a pele do animal.</p>
+        <h3>Escova comum</h3>
+        <p>Entope de pelo super rápido, e só te resta tirar tudo na unha. Fora que as cerdas de metal pontudas machucam o seu bichinho.</p>
       </article>
     </div>
 
     <div class="wrap--narrow reveal" style="padding:0">
-      <p class="closer">Todas falham pela mesma razão. Elas correm atrás do pelo que já caiu, em vez de tirar o pelo morto na fonte, antes de ele se espalhar pela casa.</p>
+      <p class="closer">Todas falham pela mesma razão: cuidam do pelo já caído, não previnem nada e ainda são chatíssimas de limpar.</p>
     </div>
   </div>
 </section>
@@ -623,8 +678,8 @@ td.no{ color:var(--ink-faint); }
     <div class="reveal">
       <p class="eyebrow">Tecnologia Click-Clean</p>
       <h2>A diferença está em <span class="accent">um clique</span></h2>
-      <p>A Escova Autolimpante Pelaria tem a tecnologia Click-Clean: uma placa interna que, ao apertar o botão, avança além das cerdas e empurra a manta inteira de pelo pra fora. O pelo morto sai compacto, direto pro lixo. Sem pinçar com a unha, sem sujeira na mão, sem deformar a escova.</p>
-      <p>As cerdas anguladas em 60° alcançam o subpelo morto na camada de baixo, justamente o pelo que está prestes a cair pela casa. E cada cerda tem ponta esférica de resina, então o que o seu pet sente é massagem, não arranhão.</p>
+      <p>A Escova Autolimpante Pelaria tem a tecnologia Click-Clean: uma placa interna que, ao apertar o botão, avança além das cerdas e empurra toda a manta de pelo pra fora. O pelo morto sai compacto, direto pro lixo. Sem tirar com a unha, sem se sujar e sem deformar a escova.</p>
+      <p>As cerdas anguladas em 60° alcançam o pelo morto na camada de baixo, tirando justamente o pelo que ia parar na sua casa. E como cada cerda tem ponta esférica de resina, o seu pet sente massagem, não arranhão.</p>
     </div>
   </div>
 
@@ -657,8 +712,8 @@ td.no{ color:var(--ink-faint); }
   <div class="wrap wrap--narrow">
     <div class="reveal">
       <h2>Carinho, não tortura</h2>
-      <p>O maior medo de quem escova é machucar. Por isso cada cerda da Pelaria termina numa ponta arredondada de resina, que desliza sobre a pele sem arranhar. Funciona como uma escova de cabelo boa: massageia, ativa a circulação e relaxa o animal.</p>
-      <p>A maioria dos pets odeia escova porque as antigas puxavam e arranhavam. Com as pontas redondas e a pressão distribuída, em poucos dias o seu pet vem correndo quando vê a escova na sua mão.</p>
+      <p>Quem escova o pet com frequência vive com medo de machucar. Por isso cada cerda da nossa escova termina numa ponta arredondada de resina, que desliza sobre a pele sem arranhar. Massageia, ativa a circulação e relaxa o animal.</p>
+      <p>A maioria dos pets odeia escova porque as comuns puxam e arranham. Com as pontas redondas e a pressão distribuída, em poucos dias o seu pet vem correndo quando vê a escova na sua mão.</p>
     </div>
 
     <div class="reveal" style="margin-top:36px">
@@ -680,8 +735,8 @@ td.no{ color:var(--ink-faint); }
      ========================================================= -->
 <section class="section section--white">
   <div class="wrap wrap--narrow reveal">
-    <h2>Feita pro pelo do seu bicho, seja ele qual for</h2>
-    <p>Funciona no pelo curto e espetado do Pug, do Buldogue e do gato SRD, justamente aqueles pelinhos que grudam na roupa e o aspirador não pega. E funciona no pelo longo e denso do Golden, do Spitz, do Persa, removendo o subpelo morto sem puxar os nós saudáveis.</p>
+    <h2>Pensada para todos os pestinhas, todos mesmo</h2>
+    <p>Desde o pelo curto e espetado do Pug, do Buldogue e do gatinho comum, até o pelo longo e denso do Golden, do Spitz e do Persa, o pelo morto é um problema que não pergunta raça, faz parte deles. A pergunta é se você quer esse pelo todo na SUA casa.</p>
 
     <!-- Grade de tags. Editar livremente. -->
     <div class="tags">
@@ -703,7 +758,7 @@ td.no{ color:var(--ink-faint); }
 <section class="section">
   <div class="wrap">
     <div class="reveal">
-      <h2>Por que a Pelaria, e não a escova de R$15 do mercado</h2>
+      <h2>Por que a Pelaria, e não a escova de R$ 15 do mercado</h2>
     </div>
 
     <div class="table-scroll reveal">
@@ -712,7 +767,7 @@ td.no{ color:var(--ink-faint); }
           <tr>
             <th scope="col"><span class="note">Comparativo</span></th>
             <th scope="col" class="col-hero">Escova Pelaria</th>
-            <th scope="col">Rasqueadeira comum</th>
+            <th scope="col">Escova comum</th>
             <th scope="col">Rolo adesivo</th>
           </tr>
         </thead>
@@ -765,26 +820,31 @@ td.no{ color:var(--ink-faint); }
     <!-- Título centralizado no mesmo eixo e na mesma largura da caixa
          de oferta logo abaixo (ver .offer-head no CSS). -->
     <div class="offer-head center reveal">
-      <h2>Sua casa sem pelos por menos do que você gasta em rolinho num mês</h2>
+      <h2>Chega de pelos por menos do que você gasta em rolinho num mês. Uma bagunça a menos em casa.</h2>
     </div>
 
     <div class="offer reveal">
       <div class="price-row">
-        <span class="price-old">De R$67</span>
-        <span class="price-new">por R$37,90</span>
+        <span class="price-old">De R$ 67,00</span>
+        <span class="price-new">por R$ 37,90</span>
       </div>
 
       <ul class="offer-list">
         <li>Parcelamento seguro no cartão via Mercado Pago</li>
         <li>Frete grátis pro Brasil inteiro</li>
-        <li>Bônus: Guia Digital Pelaria, como reduzir a queda de pelos em casa</li>
+        <li>Bônus: Guia Pelaria, livro digital que ajuda a reduzir a queda de pelos em casa</li>
       </ul>
+
+      <!-- ESCASSEZ · texto estático, não é contador regressivo.
+           COMPLIANCE: esta linha afirma um fato sobre o seu estoque.
+           Só pode ficar no ar enquanto o lote realmente tiver menos de
+           200 unidades. Quando o número mudar, edite ou remova a linha.
+           Para desativar, basta apagar o parágrafo abaixo. -->
+      <p class="scarcity">Menos de 200 unidades em estoque para este lote</p>
 
       <a class="btn" href="https://pelaria.com.br/cart/44275167723623:1">QUERO A MINHA ESCOVA</a>
       <p class="note btn-note">Pague com Pix ou cartão · Compra protegida · Garantia de 7 dias</p>
     </div>
-
-    <!-- COMPLIANCE: sem contador de escassez falso. Só inserir urgência com data real ou estoque real controlado. -->
   </div>
 </section>
 
@@ -881,7 +941,7 @@ td.no{ color:var(--ink-faint); }
      ========================================================= -->
 <section class="section section--white">
   <div class="wrap wrap--narrow center reveal">
-    <h2>Risco zero por 7 dias</h2>
+    <h2>Você já leu o suficiente</h2>
     <p>Recebeu, testou e não amou? Você tem 7 dias pra solicitar a devolução. A Pelaria paga o frete de volta e devolve 100% do seu dinheiro assim que o produto chega aqui. O risco é todo nosso, não seu.</p>
     <a class="btn" href="https://pelaria.com.br/cart/44275167723623:1" style="margin-top:14px">QUERO A MINHA ESCOVA</a>
   </div>
@@ -960,20 +1020,13 @@ td.no{ color:var(--ink-faint); }
      ========================================================= -->
 <footer class="footer">
   <div class="wrap">
-    <div class="footer-inner">
-      <div>
-        <p class="footer-brand">Pelaria 🐾</p>
-        <div class="footer-links">
-          <a href="[LINK_POLITICA_TROCA]">Política de troca e devolução</a>
-          <a href="[LINK_POLITICA_PRIVACIDADE]">Política de privacidade</a>
-          <a href="[LINK_CONTATO]">Contato</a>
-        </div>
-      </div>
-      <div>
-        <p class="note">Pagamento seguro via Mercado Pago</p>
-        <p class="note">© <span id="ano">2026</span> Pelaria. Todos os direitos reservados.</p>
-      </div>
-    </div>
+    <!-- Assinatura da marca: único elemento clicável do rodapé.
+         Leva para a loja, não para o checkout. -->
+    <p class="footer-brand">
+      <a href="https://pelaria.com.br">Pelaria</a>
+    </p>
+    <p class="note">Pagamento seguro via Mercado Pago</p>
+    <p class="note">© <span id="ano">2026</span> Pelaria. Todos os direitos reservados.</p>
   </div>
 </footer>
 
@@ -983,7 +1036,7 @@ td.no{ color:var(--ink-faint); }
      Escondido no desktop pelo media query (min-width:900px).
      ========================================================= -->
 <div class="sticky-cta">
-  <a class="btn" href="https://pelaria.com.br/cart/44275167723623:1">QUERO A MINHA ESCOVA · R$37,90</a>
+  <a class="btn" href="https://pelaria.com.br/cart/44275167723623:1">QUERO A MINHA ESCOVA · R$ 37,90</a>
 </div>
 
 
